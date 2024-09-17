@@ -1,0 +1,265 @@
+@import "master-theme-ui.css";
+@import "user-setting-ui.css";
+
+.container {
+    width: 60%;
+    margin: 8rem auto;
+    background-color: #ffffffac;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+span {
+    color: var(--color-danger);
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 0;
+}
+
+.top-bar {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7.5rem;
+    background-color: rgb(241, 241, 241);
+    top: 0;
+    left: 0;
+    padding: 2rem;
+    margin: 0 0 2rem 0;
+    z-index: 1;
+}
+
+.logo {
+    margin: 0;
+    position: absolute;
+    left: 10rem;
+}
+
+.logo img {
+    width: 8rem;
+    height: fit-content;
+}
+
+.top-bar h1 {
+    position: relative;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* code for back nav button  */
+.back-nav-btn {
+    display: none;
+}
+
+/* code for the mandatory field */
+.top-bar small {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-left: 18rem;
+    cursor: pointer;
+
+}
+
+.text-muted {
+    font-size: 14px;
+    color: #888;
+}
+
+.text-muted span {
+    color: red;
+}
+
+.form-contents {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 0.15rem dashed black;
+}
+
+
+form {
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+.form-group {
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 0.15rem dashed black;
+
+}
+
+.form-group h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* for disabled button  */
+input[type="submit"]:disabled {
+    background-color: rgb(195, 192, 192);
+}
+
+input[type="submit"]:disabled:hover {
+    background-color: rgb(195, 192, 192);
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #0056b3;
+}
+
+.page-nav-btn {
+    text-align: center;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+}
+
+
+.isSameAddressDiv {
+    display: flex;
+    font-size: 16px;
+    background-color: #ccc;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-1);
+}
+
+.isSameAddressDiv label {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.isSameAddressDiv input[type="checkbox"] {
+    cursor: pointer;
+    appearance: checkbox;
+    width: 2rem;
+}
+
+@media screen and (max-width : 1200px) {
+    .back-nav-btn {
+        display: flex;
+        z-index: 1;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .top-bar small {
+        margin: 1rem;
+        font-size: 1rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .back-nav-btn {
+        display: flex;
+        position: fixed;
+        width: 3.5rem;
+        top: 5%;
+        left: 0;
+        z-index: 1;
+        background-color: #6ac0f2;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select {
+        font-size: 14px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        font-size: 14px;
+        padding: 8px 16px;
+        display: flex;
+        width: 20rem;
+        gap: 1rem;
+        flex-direction: column;
+        margin: 0.5rem auto;
+        align-items: center;
+    }
+}
+
+/* style for the error message  */
+.errorMsg {
+    display: block;
+    position: relative;
+    left: 2%;
+    color: var(--color-danger);
+    margin: 0.3rem;
+}
+
+/* style for the homw button that takes the use back to the page  */
+.homeBtn {
+    display: block;
+    position: relative;
+    margin: 1rem 1rem;
+    font-size: 2.5rem;
+    left: -20%;
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    border-radius: 50% 50%;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}

@@ -1,0 +1,89 @@
+@import "https://www.w3schools.com/w3css/4/w3.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "https://fonts.googleapis.com/css2?family=Material+Icons+Sharp";
+@import "https://fonts.googleapis.com/css?family=Montserrat";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+/* declaring css root variables in the admin dash board  */
+:root {
+    --color-primary: rgb(0, 0, 0);
+    --color-danger: rgb(255, 11, 11);
+    --color-success: rgb(101, 248, 101);
+    --color-warning: rgb(245, 184, 71);
+    --color-white: #fff;
+    --color-info-dark: #6d7c8d;
+    --color-info-white: #c8f6f0;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --color-btn: #3e00f9;
+
+    --card-border-radius: 2 rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* universal selectors  */
+* {
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    padding: var(--card-padding);
+    background: linear-gradient(-45deg, #fff, #ecfdff, #fff3f5, #e9f2ff, #ffe0f59d, rgb(254, 255, 255), rgb(227, 253, 255));
+     background-size: cover;
+     background-attachment: fixed;
+
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}

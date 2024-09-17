@@ -1,0 +1,439 @@
+@import "master-theme-ui.css";
+
+/* Resetting default margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 0;
+    padding: 0;
+}
+
+aside {
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+    background-color: whitesmoke;
+    color: var(--color-primary);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+}
+
+aside .logo {
+    background: url(../Image/app_launcher.svg);
+    position: relative;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 6rem;
+    height: 6rem;
+}
+
+.close {
+    cursor: pointer;
+    display: none;
+}
+
+/* css for the aside side bar  */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3.2rem;
+}
+
+aside .sidebar button h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sidebar button {
+    background-color: inherit;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a,
+aside .sidebar button {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span,
+.sidebar button span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+
+aside .sidebar a:hover,
+.sidebar button:hover {
+    color: var(--color-primary);
+    background: #ccc9c9;
+    font-family: "Dancing Script", cursive;
+}
+
+aside .sidebar a:hover span,
+.sidebar button:hover span {
+    margin-left: 1rem;
+}
+
+/* keep the logout button at last  */
+.sidebar button:last-child {
+    position: relative;
+    top: 50%;
+    background: #eee;
+}
+
+/* main section  */
+.main {
+    position: absolute;
+    flex: 1;
+    padding: 20px;
+    left: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.w3-container {
+    display: flexbox;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.w3-card-4 {
+    background-color: #fff;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-box-padding);
+}
+
+.w3-card-4 header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-1);
+}
+
+header .family-del-btn {
+    left: 10rem;
+}
+
+.w3-card-4 img {
+    width: 60px;
+    border-radius: var(--border-radius-1);
+    margin-right: 20px;
+}
+
+
+/* right section  */
+.right {
+    position: relative;
+    width: 20rem;
+    left: -1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 5rem;
+
+}
+
+.right .top button {
+    display: none;
+}
+
+.profile {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    width: 100%;
+    object-fit: cover;
+}
+
+.profile .info {
+    margin-left: 10px;
+}
+
+#menu-btn {
+    display: none;
+}
+
+/* notification section  */
+
+.notification {
+    background: #eee;
+    padding: 0.5rem;
+    border-bottom: 1px solid #333;
+    margin-top: 0.5rem;
+    border-left: 0.5rem solid #b8afaf;
+}
+
+.notification .notify-title {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.notification .notice {
+    display: block;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+/* keeping the top menu btn hidden  */
+.mobile-top {
+    display: none;
+}
+
+/* style for the family delete button  */
+.family-del-btn {
+    display: block;
+    position: relative;
+
+}
+
+/* for tablets and display size of 1200px */
+@media screen and (max-width:1200px) {
+    .container {
+        width: 100%;
+    }
+
+    aside .top {
+        border: none;
+    }
+
+    aside {
+        width: 8rem;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+
+    aside .sidebar button {
+        position: relative;
+        margin-top: 1.8rem;
+        width: 5.6rem;
+    }
+
+    .sidebar button:last-child {
+        top: 0;
+        background-color: inherit;
+        margin-top: 0;
+    }
+
+    .right {
+        left: 0;
+    }
+}
+
+/* Media query for mobile responsiveness */
+@media screen and (max-width:600px) {
+
+    /* for memu btn  */
+
+    #menu-btn {
+        position: absolute;
+        left: 5%;
+        display: inline-block;
+        background-color: inherit;
+        font-size: 3rem;
+        cursor: pointer;
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+        margin-top: 0.1rem;
+    }
+
+    aside .sidebar button {
+        position: absolute;
+        bottom: 5rem;
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: auto;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    /* animation for side bar  */
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+
+    .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    /* keeping the  profile and menu btn at the top */
+    .mobile-top {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        margin: 0;
+        width: 100%;
+        z-index: 1;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .mobile-top .profile {
+        width: 4rem;
+        height: inherit;
+        position: absolute;
+        left: 85%;
+    }
+
+    .mobile-top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .right .top {
+        display: block;
+        background-color: rgb(244, 248, 244);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .info {
+        display: none
+    }
+
+    main {
+        width: 100%;
+        margin-top: 15%;
+    }
+
+    .mobile-notice {
+        position: relative;
+        z-index: 1;
+        left: 75%;
+        top: 0.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-notice:hover {
+        transition: transform 2s;
+        transform: scale(1.1) rotate(360deg);
+        color: rgb(78, 255, 78);
+    }
+
+
+    #noticeContainer {
+        position: fixed;
+        display: none;
+        width: 22rem;
+        height: 50rem;
+        background-color: rgb(255, 252, 252);
+        top: 10%;
+        right: -100%;
+        overflow-y: auto;
+        animation: showNotification 400ms ease-in-out forwards;
+        z-index: 1;
+    }
+
+    .notification .notify-title {
+        font-weight: 400;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .notification .notice {
+        font-size: 0.6rem;
+        font-weight: 100;
+    }
+
+    /* animation for side bar  */
+    @keyframes showNotification {
+        to {
+            right: 0;
+        }
+    }
+}
+}

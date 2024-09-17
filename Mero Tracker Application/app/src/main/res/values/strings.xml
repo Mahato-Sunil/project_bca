@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name"> Mero Tracker </string>
+    <string name="mapbox_access_token">pk.eyJ1Ijoic3VuaWxtYWhhdG8iLCJhIjoiY2x5a2d2cGdxMHk3MTJqcXkwdmpmdWRzdCJ9.gJub9LIN8rdHSRNnSSL_ZA</string>
+    <string name="heading">Smart Mobile Tracker </string>
+    <string name="Name">Enter Name</string>
+    <string name="Phone">Enter Phone Number</string>
+    <string name="registerBtn">Connect Me</string>
+    <string name="tips"> Tips for you ..... </string>
+    <string name="sosBtn">Emergency SOS</string>
+    <string name="successMsg">Data sent successfully!</string>
+    <string name="failureMsg">Failed to send data to the server: %1$s</string>
+    <string name="title_description_text">Please Enter Your Details :</string>
+    <string name="ctzn_id">Enter Citizenship No.</string>
+    <!--    string for the url -->
+    <string name="register_hint"> New User ? <a href="https://192.168.1.69/Main/index.html"> Register Now  </a></string>
+
+<!--    string for the tips sectinon -->
+    <string name="tip1">Stay Aware: Be mindful of your surroundings and trust your instincts. </string>
+    <string name="tip2"> Stay Close: Stick to well-populated areas and avoid isolated places.</string>
+    <string name="tip3"> Buddy System: When possible, travel with a friend or family member. </string>
+    <string name="tip4"> Know Emergency Numbers: Teach your kids how to call 911 and other emergency numbers. </string>
+    <string name="tip5"> Avoid Strangers: Teach children not to accept gifts or rides from strangers. </string>
+    <string name="tip6"> Safe Routes: Discuss safe routes from school or other destinations with your child.</string>
+    <string name="tip7"> Security Measures: Choose schools, child care facilities, and camps with good security measures.</string>
+    <string name="tip8"> Check References: When hiring babysitters, check references and recommendations.</string>
+    <string name="tip9"> Practice Saying “No”: Teach kids to say “no” forcefully if approached by a stranger.</string>
+    <string name="tip10"> Child ID Information: Keep recent photos, height, weight, and fingerprints on hand for identification. </string>
+</resources>

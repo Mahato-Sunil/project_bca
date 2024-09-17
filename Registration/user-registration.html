@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../Style/registration-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <title>User Registration </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../Image/app_launcher.svg" alt="Smart Mobile Tracker">
+                </a>
+            </div>
+            <br>
+            <small class="text-muted"> Mandatory Fields are Marked with <span>*</span></small>
+        </div>
+        <!-- back navigation button -->
+        <div class="back-nav-btn" onclick="window.location.href='../index.html'">
+            <i class="material-icons">arrow_back</i>
+        </div>
+        <form id="user-registration" name="user-registration" method="post" enctype="multipart/form-data"
+            action="../PHP/registration.php">
+
+            <!-- html code for the personal information  -->
+            <div class="form-group">
+                <h3> Personal Information </h3>
+                <label for="first-name"> Full Name <span> * </span></label>
+                <input type="text" name="first-name" placeholder="Eg. Dhan" class="nameField" required>
+                <input type="text" name="middle-name" placeholder="Eg. Maya" class="nameField">
+                <input type="text" name="last-name" placeholder="Eg. Tamang" class="nameField" required>
+                <small id="nameMsg" class="errorMsg"></small>
+
+                <label for="dob"> Date of Birth <span> * </span> </label>
+                <input type="date" name="dob" id="dob" required>
+                <small id="dobMsg" class="errorMsg"></small>
+
+                <label for="citizenship"> Citizenship Number [Format: xx-xx-xx-xxxxx] <span> * </span></label>
+                <input type="text" name="citizenship" placeholder="Eg. xx-xx-xx-xxxxx" id="ctznField" maxlength="14"
+                    required>
+                <small id="ctznMsg" class="errorMsg"></small>
+            </div>
+
+            <!-- html code for the contact section  -->
+            <div class="form-group">
+                <h3> Contact Information </h3>
+
+                <label for="contact-number">Contact Number <span> * </span></label>
+                <input type="tel" name="contact-number" placeholder="Eg. 9802231090" maxlength="10" required>
+                <small id="pNumMsg" class="errorMsg"></small>
+
+                <label for="sec-conct-num"> Secondary Mobile Number </label>
+                <input type="tel" name="sec-conct-num" placeholder="Eg. 01-2342343" maxlength="10">
+
+                <label for="email"> Email Address <small> ( Will Be same as the Username ) </small> <span> *
+                    </span></label>
+                <input type="email" name="email" id="userEmail" placeholder="Eg. abc@gmail.com" required>
+                <small id="emailMsg" class="errorMsg"></small>
+            </div>
+
+            <!-- html code for the location section  -->
+            <div class="form-group">
+                <h3> Temporary Address </h3>
+                <label for="t-province">Province <span> * </span></label>
+                <select name="t-province" id="t-province" class="p_checkbox" required>
+                    <option> Select Province </option>
+                    <option value="Province 1"> Province 1</option>
+                    <option value="Province 2"> Province 2</option>
+                    <option value="Bagmati"> Bagmati </option>
+                    <option value="Gandaki"> Gandaki</option>
+                    <option value="Province 5">Province 5</option>
+                    <option value="Province 6"> Province 6 </option>
+                    <option value="Province 7">Province 7</option>
+                </select>
+
+                <label for="t-district">District <span> * </span></label>
+                <select name="t-district" class="d_checkbox" id="t-district" required>
+                    <option>Select District </option>
+                    <option value="Kathmandu"> Kathmandu</option>
+                    <option value="Pokhara"> Pokhara </option>
+                    <option value="NepalJung"> NepalJung </option>
+                    <option value="Hetauda "> Hetauda </option>
+                    <option value="Chitwan"> Chitwan </option>
+                    <option value="Ilam"> Ilam </option>
+                </select>
+
+                <div class="isSameAddressDiv">
+                    <input type="checkbox" name="isSameAddress" id="isSameAddress">
+                    <label for="isSameAddress"> Permanent Address is same as Temporary Address. </label>
+                </div>
+
+
+                <h3> Permanent Address </h3>
+
+                <label for="p-province">Province <span> * </span></label>
+                <select name="p-province" id="p-province" class="p_checkbox" required>
+                    <option> Select Province </option>
+                    <option value="Province 1"> Province 1</option>
+                    <option value="Province 2"> Province 2</option>
+                    <option value="Bagmati"> Bagmati </option>
+                    <option value="Gandaki"> Gandaki</option>
+                    <option value="Province 5">Province 5</option>
+                    <option value="Province 6"> Province 6 </option>
+                    <option value="Province 7">Province 7</option>
+                </select>
+                <small class="province errorMsg"></small>
+
+                <label for="p-district">District <span> * </span></label>
+
+                <select id="p-district" name="p-district" class="d_checkbox" required>
+                    <option>Select District </option>
+                    <option value="Kathmandu"> Kathmandu</option>
+                    <option value="Pokhara"> Pokhara </option>
+                    <option value="NepalJung"> NepalJung </option>
+                    <option value="Hetauda "> Hetauda </option>
+                    <option value="Chitwan"> Chitwan </option>
+                    <option value="Ilam"> Ilam </option>
+                </select>
+                <small class="district errorMsg"></small>
+
+            </div>
+
+            <div class="form-group">
+                <label for="username"> Username </label>
+                <input type="text" name="username" id="username" disabled>
+            </div>
+
+            <div class="page-nav-btn">
+                <input type="reset" value="Clear Form">
+                <input type="submit" value="Get Registered" id="submitBtn" disabled>
+            </div>
+        </form>
+    </div>
+
+    <!-- script for the navigation page  -->
+    <script src="../Script/input-field-validation.js"></script>
+    <script>
+        let dateField = document.querySelector('#dob');
+        let today = new Date();
+        let defaultDate = new Date();
+        defaultDate.setFullYear(today.getFullYear() - 13);
+
+        // for user restriction to choose the 13 years of time frame 
+        let year = defaultDate.getFullYear();
+        let month = (defaultDate.getMonth() + 1).toString().padStart(2, '0');
+        let day = defaultDate.getDate().toString().padStart(2, '0');
+        let latestDate = `${year}-${month}-${day}`;
+
+        // for user restriction to choose the 100 years of time frame 
+        let oldestDate = new Date();
+        oldestDate.setFullYear(today.getFullYear() - 100);
+        let oldYear = oldestDate.getFullYear();
+        let oldMonth = (oldestDate.getMonth() + 1).toString().padStart(2, '0');
+        let oldDay = oldestDate.getDate().toString().padStart(2, '0');
+        let minDate = `${oldYear}-${oldMonth}-${oldDay}`;
+
+        // Set the date
+        dateField.value = latestDate;
+        dateField.max = latestDate;
+        dateField.min = minDate;
+
+    </script>
+</body>
+
+</html>

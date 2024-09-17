@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/landing-ui.css">
+    <title>Error 404 - Page Not Found</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <div class="menu-toggle" id="openMenu">
+                <span class="material-icons-sharp"> menu</span>
+            </div>
+            <ul class="nav-items" id="navItems">
+                <li><a href="../index.html" class="active">Home</a></li>
+                <li><a href="../about-us.html">About Us</a></li>
+                <li><a href="../contact-us.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- for mobile phones -->
+    <div class="navbar-mobile">
+        <div class="menu-toggle" id="closeMenu">
+            <span class="material-icons-sharp">close</span>
+        </div>
+        <ul class="nav-items-mobile" id="navItemsMobile">
+            <li><a href="../index.html" class="active">Home</a></li>
+            <li><a href="../about-us.html">About Us</a></li>
+            <li><a href="../contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- MAIN SECTION FOR 404 ERROR PAGE -->
+    <main>
+        <section class="main-heading">
+            <h1>Error 404 - Page Not Found</h1>
+            <p>We couldn't find the page you were looking for.</p>
+            <p>The developers are working to fix the issue soon.</p>
+            <p>Sorry for the inconvenience caused.</p>
+            <div class="cta-buttons">
+                <button class="button button-primary" onclick="window.location.href='../index.html'">
+                    Go to Home</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer section for the copyright tag -->
+    <footer>
+        <p>&copy; 2024 Sunil Mahato | <a href="../privacy-policy.html">Privacy Policy</a></p>
+    </footer>
+    <script src="../Script/script.js"></script>
+</body>
+
+</html>

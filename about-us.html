@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/landing-ui.css">
+    <title> About Us </title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <div class="menu-toggle" id="openMenu">
+                <span class="material-icons-sharp"> menu</span>
+            </div>
+            <ul class="nav-items" id="navItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html" class="active">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+            <button class="login-button" onclick="window.location.href='login-page.php'">Log in</button>
+        </nav>
+    </header>
+
+    <!-- for mobile phones  -->
+    <div class="navbar-mobile">
+        <div class="menu-toggle" id="closeMenu">
+            <span class="material-icons-sharp">close</span>
+        </div>
+        <ul class="nav-items-mobile" id="navItemsMobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html" class="active">About Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="login-page.php"> Login </a></li>
+        </ul>
+        </ul>
+    </div>
+
+    <main>
+        <div class="main-heading">
+
+            <h1 class="mobile"> We are on a mission to create a safer society. </h1>
+            <h1 class="large" style="font-weight: 700; font-size: 3rem;"> We are on a <span
+                    style="color: rgb(93, 117, 251); font-family: 'Dancing Script', cursive;">mission
+                </span> to create a safer Society </h1>
+
+            <p>Our mission is to empower individuals to share their location swiftly and accurately when emergencies
+                strike. Whether it’s a medical crisis, natural disaster, or personal safety concern, we provide a
+                seamless solution for real-time location sharing. </p>
+        </div>
+
+        <!-- IMAGE SECTION  -->
+
+        <div class="img-container">
+
+            <div class="w3-card about-us-img">
+                <img src="./Image/login-image.svg" style="width:100%">
+                <div class="w3-container w3-display-bottommiddle">
+                    <h3>Secured Site </h3>
+                </div>
+            </div>
+
+            <div class="w3-card about-us-img">
+                <img src="./Image/login-image.svg" style="width:100%">
+                <div class="w3-container w3-display-bottommiddle">
+                    <h3> 99% Up Time </h3>
+                </div>
+            </div>
+
+            <div class="w3-card about-us-img">
+                <img src="./Image/blogger.jpg" style="width:100%">
+                <div class="w3-container w3-display-bottommiddle">
+                    <h3>Real Time </h3>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!-- developer note  -->
+        <h1 style="text-align: center"> Developer's Message </h1>
+        <div class="developer">
+            <div class="left">
+                <h3 style="font-size:30px">My <span
+                        style="color: rgb(44, 74, 241); font-size: 45px; font-family: 'Dancing Script', cursive;">aim
+                    </span> is to create a safer society </h3>
+                <p class="section-description">
+                    I've created this software project to help the peoples to share the location without getting worried
+                    about the privacy and security of their data.
+                </p>
+
+                <p class="w3-right" style="font-family: 'Dancing Script', cursive;">- Sunil Mahato</p>
+            </div>
+
+            <div class="right">
+                <img src="./Image/developer_profile.svg" class="w3-image parallax-image" alt="Developers Image">
+            </div>
+        </div>
+
+        </div>
+    </main>
+    <!-- footer section for the copy right tag  -->
+    <footer>
+        <p>&copy; 2024 Sunil Mahato | <a href="privacy-policy.html">Privacy Policy </a></p>
+    </footer>
+    <script src="./Script/script.js"></script>
+</body>
+
+</html>

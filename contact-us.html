@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/landing-ui.css">
+
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <div class="menu-toggle" id="openMenu">
+                <span class="material-icons-sharp"> menu</span>
+            </div>
+            <ul class="nav-items" id="navItems">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html" class="active">Contact Us</a></li>
+            </ul>
+            <button class="login-button" onclick="window.location.href='login-page.php'">Log in</button>
+        </nav>
+    </header>
+
+    <!-- for mobile phones  -->
+    <div class="navbar-mobile">
+        <div class="menu-toggle" id="closeMenu">
+            <span class="material-icons-sharp">close</span>
+        </div>
+        <ul class="nav-items-mobile" id="navItemsMobile">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="login-page.php"> Login </a></li>
+        </ul>
+        </ul>
+    </div>
+
+    <!-- main content  -->
+    <main>
+        <div class="w3-padding-64 w3-justify w3-mobile " id="contact">
+            <h1 style="text-align: left; font-weight: 400; font-size: 2.5rem;" style="color: var(--color-primary);">
+                Contact Us</h1>
+            <div class="w3-section">
+                <p>
+                    <i class="w3-text-black w3-margin w3-xxlarge fa fa-home"></i> Kathmandu, Nepal
+                </p>
+
+                <p>
+                    <i class="w3-text-black w3-margin w3-xxlarge fa fa-phone"></i> <a href="tel:+977-9860650642">
+                        +977-9860650642 </a>
+                </p>
+
+                <p>
+                    <i class="w3-text-black w3-margin w3-xxlarge fa fa-envelope "> </i> <a href="mailto:sunilmhto42@gmail.com"> sunilmhto42@gmail.com </a>
+                </p>
+
+                <p>
+                    <i class="w3-text-black w3-margin w3-xxlarge fa fa-globe"></i> <a href="https://mahatosunil.com.np">
+                        mahatosunil.com.np</a>
+                </p>
+
+                <p>
+                    <i class="w3-text-black w3-margin w3-xxlarge fa fa-globe"></i> <a
+                        href="https://shahityiksansar.blogspot.com"> shahityiksansar.blogspot.com</a>
+                </p>
+            </div>
+            <br>
+
+            <!-- user's messaging section -->
+
+            <br>
+            <h1 style="text-align: left; font-weight: 400; font-size: 2rem;" style="color: var(--color-primary);">
+                Let's Get in Touch.. Send Me Message </h1>
+
+            <p>
+                <input id="name" class="w3-input w3-borderbottom w3-padding-16" type="text" placeholder="Name"
+                    name="Name" required>
+            </p>
+            <p>
+                <input id="email" class="w3-input w3-borderbottom w3-padding-16" type="email"
+                    placeholder="Email" name="Email" required>
+            </p>
+            <p>
+                <input id="subject" class="w3-input w3-borderbottom w3-padding-16" type="text"
+                    placeholder="Subject" name="Subject" required>
+            </p>
+            <p>
+                <input id="message" class="w3-input w3-borderbottom w3-padding-16" type="text"
+                    placeholder="Message" name="Message" required>
+            </p>
+            <p>
+                <button type="submit" onclick="sendMail()" class="w3-button w3-light-blue w3-padding-large">
+                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </p>
+
+            <!-- End Contact Section -->
+        </div>
+
+
+    </main>
+    <!-- footer section for the copy right tag  -->
+    <footer>
+        <p>&copy; 2024 Sunil Mahato | <a href="privacy-policy.html">Privacy Policy </a></p>
+    </footer>
+
+    <script src="./Script/script.js"></script>
+    <script src="https://kit.fontawesome.com/3794b25452.js" crossorigin="anonymous"></script> <!-- for font awesome -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- script file for email.js integration -->
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("gR_vOZwOP4oacC13m");
+        })();
+    </script>
+    <script>
+        /* script to send mail using emailjs */
+
+        const sendMail = () => {
+
+            /* storing input in array of objects */
+
+            var parameters = {
+                subject: document.getElementById('subject').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            const serviceId = 'service_xzsz6cq';
+            const templateId = 'template_yl64o22';
+
+            emailjs.send(serviceId, templateId, parameters)
+                .then(
+                    function (response) {
+                        document.getElementById('subject').value = " ";
+                        document.getElementById('name').value = " ";
+                        document.getElementById('email').value = " ";
+                        document.getElementById('message').value = " ";
+                        //  alert("Message sent successfully");
+                        location.replace("contact-us.html");
+                    },
+                    function (error) {
+                        alert("Sorry! The message wasn't send. Error code : ", error);
+                    });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<?php
+/*
+|This is a demo configuration file
+ please do not delete this file 
+ rather  create a config.php file set up the following credentials 
+ */
+
+// database credentials 
+$host = "exitlocalhost";
+$admin_dbname = "sct_admin";
+$user_dbname = "sct_user";
+$username = "root";
+$password = "";
+
+//smtp mail details 
+$mail_host = "smtp.gmail.com";
+$mail_username = <smtp user name>;
+$mail_password = "<smtp mail password>";
+$mail_form = "<smtp mail address>";
+$mail_form_name = "Mero Tracker";
+
+//map box api key 
+$mapbox_access_token = "mapboxaccesskey";
+

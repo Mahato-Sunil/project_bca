@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/landing-ui.css">
+    <title> Mobile Tracking System </title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <div class="menu-toggle" id="openMenu">
+                <span class="material-icons-sharp"> menu</span>
+            </div>
+            <ul class="nav-items" id="navItems">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+            <button class="login-button" onclick="window.location.href='login-page.php'">Log in</button>
+        </nav>
+    </header>
+
+    <!-- for mobile phones  -->
+    <div class="navbar-mobile">
+        <div class="menu-toggle" id="closeMenu">
+            <span class="material-icons-sharp">close</span>
+        </div>
+        <ul class="nav-items-mobile" id="navItemsMobile">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="login-page.php"> Login </a></li>
+        </ul>
+        </ul>
+    </div>
+
+    <!-- MAIN SECTION FOR LANDING PAGE  -->
+    <main>
+        <section class="main-heading">
+            <h1>Congratulations !! We've Received Your Request</h1>
+            <p> You'll soon receive an Email with the confirmation message from the administration Team. Make sure to
+                look up your emails. </p>
+            <p> Have a great day !!. </p>
+            <div class="cta-buttons">
+                <button class="button button-primary" onclick="window.location.href='./index.html'">
+                    Explore
+                    More</button>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer section for the copy right tag  -->
+    <footer>
+        <p>&copy; 2024 Sunil Mahato | <a href="priv-+acy-policy.html">Privacy Policy </a></p>
+    </footer>
+    <script src="./Script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 3rem auto;
+    background-color: #ffffffac;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.top-bar {
+    background-color: #f0f0f0;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 20%;
+}
+
+.top-bar .logo {
+    width: 10rem;
+}
+
+.top-bar .logo img {
+    position: relative;
+    width: 6rem;
+    height: auto;
+    left: 5%;
+}
+
+.top-bar h1 {
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+span {
+    color: red;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btngrp {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.gallery {
+    margin: 1rem auto;
+    display: flex;
+    gap: 1.8rem;
+}
+
+.avatar_img {
+    border-radius: 10px;
+    cursor: pointer;
+    width: 5rem;
+    height: 5.5rem;
+    filter: brightness(60%);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.avatar_img:hover {
+    transform: scale(1.1);
+    filter: brightness(100%);
+    border-radius: 10px;
+    border: none;
+}
+
+.w3-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#submitBtn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+
+    label {
+        font-size: 0.8rem;
+    }
+
+   .top-bar h1{
+        font-size:1.5rem;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+        font-size: 0.9rem;
+    }
+
+    .form-contents {
+        width: 100%;
+    }
+
+    .gallery {
+        gap: 1rem;
+    }
+
+    .avatar_img {
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -1,0 +1,193 @@
+@import "master-theme-ui.css";
+@import "user-dashboard-ui.css";
+
+/* Base styles for the card */
+.main-card {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    gap: 2rem;
+    padding: var(--card-padding);
+    top: 6rem;
+    left: 3%;
+    padding-left: 0;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    width: 23vw;
+    background-color: #fff;
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    padding: var(--card-padding);
+    transition: 0.4s all ease-in-out;
+    justify-content: space-between;
+}
+
+.card img {
+    width: 3rem;
+    margin: auto 2rem auto auto;
+}
+
+.card-text h3 {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+/* css code for the table data */
+.user-data {
+    position: relative;
+    width: 100%;
+    left: 3%;
+    margin-top: 11.5%;
+    height: fit-content;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white
+}
+
+.user-data td,
+.user-data th {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    height: 3rem;
+}
+
+.user-data th {
+    background: whitesmoke;
+}
+
+.user-data td span {
+    cursor: pointer;
+}
+
+/* css for notification section  */
+.notification-dot {
+    display: block;
+    background-color: rgb(0, 0, 0);
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    border-radius: 25%;
+    color: white;
+    padding: 1px;
+    font-size: 16px;
+}
+
+
+/* css code for right side of hte data   */
+.right {
+    position: relative;
+    left: 5%;
+}
+
+/* for notification closes butto */
+/* responsive ui  */
+/*  for tablets and device with 1200 of size  */
+@media screen and (max-width:1200px) {
+    .main-card {
+        top: 1rem;
+    }
+
+    .card-text h3 {
+        font-weight: 500;
+        color: #333;
+        font-size: 1.2rem;
+    }
+
+    .card img {
+        width: 2.5rem;
+    }
+
+    .user-data {
+        top: 1%;
+        margin-top: 0;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+/* for the mobile devices  */
+@media screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main-card {
+        flex-direction: column;
+        width: 90vw;
+        top: 0;
+    }
+
+    .card {
+        position: relative;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    .user-data-mobile {
+        width: 95%;
+        height: fit-content;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .user-data th,
+    .user-data td {
+        width: fit-content;
+    }
+
+    .mobile-notice {
+        position: relative;
+        z-index: 1;
+        left: 75%;
+        top: 0.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-notice:hover {
+        transition: transform 2s;
+        transform: scale(1.1) rotate(360deg);
+        color: rgb(78, 255, 78);
+    }
+
+
+    #noticeContainer {
+        position: fixed;
+        display: none;
+        width: 22rem;
+        height: 50rem;
+        background-color: rgb(255, 252, 252);
+        top: 10%;
+        right: -100%;
+        overflow-y: auto;
+        animation: showNotification 400ms ease-in-out forwards;
+        z-index: 1;
+    }
+
+    .notification .notify-title {
+        font-weight: 400;
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .notification .notice {
+        font-size: 0.6rem;
+        font-weight: 100;
+    }
+
+    /* animation for side bar  */
+    @keyframes showNotification {
+        to {
+            right: 0;
+        }
+    }
+}

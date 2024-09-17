@@ -1,0 +1,241 @@
+package com.example.mobilemonitoringsystem
+
+import android.os.Bundle
+import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.FormBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
+import java.util.Date
+import java.util.Random
+
+class DataDisplayActivity : AppCompatActivity() {
+
+    private var name = ""
+    private var phone = ""
+    private var citizenship = ""
+    private var currentLat = ""
+    private var currentLon = ""
+
+    //global class declaration
+    private val isLocation = MyLocation()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_data_display)
+        displayTips()
+        initializeServer()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopDisplayingTips()
+    }
+
+    //      DISPLAY THE TIPS
+    private val tipsArray = arrayOf(
+        R.string.tip1,
+        R.string.tip2,
+        R.string.tip3,
+        R.string.tip4,
+        R.string.tip5,
+        R.string.tip6,
+        R.string.tip7,
+        R.string.tip8,
+        R.string.tip9,
+        R.string.tip10
+    )
+
+    private lateinit var tipsUi: TextView
+    private var currentTipIndex = 0
+    private val handler = android.os.Handler()
+
+    private val tipChangeRunnable = object : Runnable {
+        override fun run() {
+            displayNextTip()
+            handler.postDelayed(this, 5000) // Display the next tip after 5 seconds
+        }
+    }
+
+    private fun displayNextTip() {
+        tipsUi.text = getString(tipsArray[currentTipIndex])
+        currentTipIndex = (currentTipIndex + 1) % tipsArray.size
+    }
+
+    private fun displayTips() {
+        tipsUi = findViewById(R.id.tipsUi)
+        handler.post(tipChangeRunnable) // Start displaying tips
+    }
+
+    private fun stopDisplayingTips() {
+        handler.removeCallbacks(tipChangeRunnable) // Stop displaying tips
+    }
+
+
+    // FUNCTION TO INITIALIZE THE SERVER
+    private fun initializeServer() {
+        val button: Button = findViewById(R.id.sosBtn)
+        button.setOnClickListener {
+            Log.d("MyApp", "Button clicked")
+            //check for the location permission
+            if (!isLocation.checkLocationPermission(this))
+                isLocation.requestPermission(this)
+            else sendLocation()
+        }
+    }
+
+    //FUNCTION TO GET THE LOCATION DATA AND SEND TO THE SERVER
+    private fun sendLocation() {
+        //dummy data to send to the server
+
+        //comment out the code if the real location is not being provided
+
+        /* val dummyLoc = arrayOf(
+             Pair(27.986065, 86.922623), // Mount Everest
+             Pair(27.700769, 85.300140), // Kathmandu
+             Pair(27.688910, 85.360321), // Pepsicola, Kathmandu
+             Pair(27.727266, 85.317497), // Samakhusi, Kathmandu
+             Pair(27.686382, 85.315399), // Kupondole, Patan
+             Pair(27.669943, 85.320404), // Kumaripati, Patan
+             Pair(27.749037, 85.328850), // Dhapasi
+             Pair(27.700001, 85.333336), // Kathmandu
+             Pair(27.706112, 85.345665), // Ring Road, Kathmandu
+             Pair(27.005915, 84.859085), // Birgunj
+             Pair(26.647038, 87.890495), // Jhapa
+             Pair(27.429071, 85.029716), // Hetauda
+             Pair(27.686386, 83.432426), // Butwal
+             Pair(28.019682, 83.804871), // Syangja
+             Pair(28.683359, 80.608063), // Dhangadhi
+             Pair(28.837200, 80.321312), // Kanchanpur
+             Pair(26.629307, 87.982475), // Birtamode
+             Pair(28.831354, 80.898651), // Kailali
+             Pair(28.598316, 83.931061), // Yunam Peak, Himalayas
+             Pair(28.476395, 84.689751)  // Gorkha
+
+         )
+         // gettinlg the dummy data
+         val randomLocation = dummyLoc[Random().nextInt(dummyLoc.size)]
+         this.currentLat = randomLocation.first.toString()
+         this.currentLon = randomLocation.second.toString()
+
+ */
+        //getting the real location
+        //get the location from the MYlocation service
+
+        isLocation.getLocation { locationData ->
+            this.currentLat = locationData.latitude
+            this.currentLon = locationData.longitude
+        }
+
+        var testMsg : TextView = findViewById(R.id.test)
+        testMsg.text = "Latitude: $currentLat, Longitude: $currentLon"
+
+        Log.d("MyApp", "Button clicked inside the sendlocation")
+        Log.d("MyAppLocation", "Latitude: $currentLat, Longitude: $currentLon")
+
+        // getting the current time by using the Calender class
+        val currentTime = Date()
+
+        //get the text view of the app
+        val msgUi: TextView = findViewById(R.id.userData)
+        msgUi.text = " "
+
+        // Retrieve data from the database
+        val dbHelper = DatabaseActivity.FeedReaderDbHelper(this)
+        val data = dbHelper.readLocationData()
+
+        // Iterate over the list and access each LocationData object
+        for (userData in data) {
+            this.name = userData.name
+            this.phone = userData.phone
+            this.citizenship = userData.citizenship
+        }
+
+        // ENSURE THAT THE  DATA IS SEND ONLY AFTER GETING ALL REQUIRED VALUES
+        if (this.currentLat.isEmpty() || this.currentLon.isEmpty()) {
+            msgUi.text =
+                getString(R.string.failureMsg, "Wait for the location data to be fetched!")
+            return
+        } else
+            msgUi.text =
+                "Name : $name\nPhone : $phone\nCitizenship : $citizenship\nLatitude : $currentLat\nLongitude : $currentLon\nTime : $currentTime\n\nSending Data to the server..."
+        // creating the object of the Network Manager class
+        val networkManager = NetworkManager(OkHttpClient())
+        networkManager.sendLocationData(
+            this.name,
+            this.phone,
+            this.citizenship,
+            this.currentLat,
+            this.currentLon,
+            currentTime.toString()
+        ) { success, message ->
+            if (success) {
+                msgUi.post {
+//                    msgUi.text = getString(R.string.successMsg)
+                    msgUi.text = message
+                }
+            } else {
+                msgUi.post {
+//                    msgUi.text = getString(R.string.failureMsg, message)
+                    msgUi.text = message
+                }
+            }
+        }
+    }
+
+    // class for sending the data to the server
+    class NetworkManager(private val client: OkHttpClient) {
+        fun sendLocationData(
+            name: String,
+            phone: String,
+            ctzn: String,
+            latitude: String,
+            longitude: String,
+            currentTime: String,
+            callback: (success: Boolean, message: String) -> Unit
+        ) {
+            val requestBody = FormBody.Builder()
+                .add("user_name", name)
+                .add("user_phone", phone)
+                .add("user_ctzn", ctzn)
+                .add("latitude", latitude)
+                .add("longitude", longitude)
+                .add("current_time", currentTime)
+                .build()
+
+            val request = Request.Builder().url(SERVER_URL).post(requestBody).build()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    callback(false, "Failed to send data to the server: ${e.message}")
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    response.use {
+                        if (!response.isSuccessful) {
+                            callback(false, "Failed to connect to the server: ${response.code}")
+                        } else {
+                            val responseBody = response.body?.string()
+                            if (responseBody.isNullOrEmpty()) {
+                                callback(false, "Server returned an empty response")
+                            } else {
+                                callback(true, "Data Sent : ${response.code}")
+                            }
+                        }
+                    }
+                }
+            })
+        }
+
+        companion object {
+            private const val SERVER_URL = "http://merotracker.kesug.com/PHP/server-data.php"
+        }
+    }
+
+}

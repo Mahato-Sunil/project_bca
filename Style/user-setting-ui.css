@@ -1,0 +1,113 @@
+@import "master-theme-ui.css";
+@import "registration-ui.css";
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+}
+
+/* style for the top dashboard button  */
+.back-nav-btn {
+    width: 10rem;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-1);
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+    background-color: var(--color-btn);
+    color: white;
+    padding: 0.8rem;
+    margin: 1rem;
+    transition: box-shadow 0.5s ease, background-color 0.3s ease;
+}
+
+.back-nav-btn:hover {
+    border-bottom: 1px solid black;
+}
+
+.tab {
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.tab.active {
+    border-bottom: 2px solid #007bff;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.form-group button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-group button.delete {
+    background: #dc3545;
+}
+
+.form-group {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group p {
+    margin-bottom: 10px;
+}
+
+.form-group .delete {
+    float: right;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Clear floats */
+.form-group::after {
+    content: "";
+    display: table;
+    clear: both;
+}

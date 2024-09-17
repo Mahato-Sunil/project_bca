@@ -1,0 +1,415 @@
+@import "master-theme-ui.css";
+
+header {
+    margin-bottom: 3%;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    z-index: 1;
+    padding: var(--card-padding);
+}
+
+.logo {
+    background: url(../Image/app_launcher.svg);
+    position: relative;
+    left: 0;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 6rem;
+    height: 6rem;
+}
+
+
+.nav-items {
+    font-size: 16px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    margin-left: auto;
+}
+
+.nav-items li {
+    margin-right: 20px;
+    padding: 0.5em 1em;
+}
+
+.nav-items li:last-child {
+    margin-right: 0;
+}
+
+.nav-items li a {
+    transition: 600ms all ease;
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+.nav-items li .active {
+    font-weight: bold;
+    border-bottom: 2px dashed var(--color-primary);
+}
+
+.nav-items li a:hover {
+
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-primary);
+
+
+}
+
+.login-button {
+    margin-left: 4em;
+    background-color: var(--color-btn);
+    color: var(--color-white);
+    width: 12rem;
+    height: 3.5rem;
+    border-radius: var(--border-radius-1);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 300ms all ease;
+}
+
+.login-button:hover,
+.button:hover {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    background-image: linear-gradient(to right, rgb(254, 255, 255), rgb(203, 249, 252));
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* for the navigation button  */
+.navbar-mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(245, 245, 245);
+    width: 55%;
+    height: 100%;
+    padding: 2rem;
+    margin: 0;
+    box-shadow: var(--box-shadow);
+    transition: 0.5s all ease-in-out;
+    z-index: 1;
+}
+
+.navbar-mobile .menu-toggle {
+    display: block;
+    position: relative;
+    left: 45%;
+    margin-bottom: 10rem;
+}
+
+.navbar-mobile .nav-items-mobile li {
+    position: relative;
+    display: flex;
+    font-size: 1.6rem;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    cursor: pointer;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    overflow-y: hidden;
+    transition: 0.2s all ease-in-out;
+}
+
+
+.navbar-mobile .nav-items-mobile li:hover {
+    border-width: 2rem;
+    border-bottom: 0.2rem solid var(--color-primary);
+}
+
+main {
+    width: 80%;
+    margin: 5% auto;
+}
+
+.main-heading {
+    margin: 1% 0;
+}
+
+.main-heading h1 {
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 2.5%;
+}
+
+.main-heading p {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.mobile {
+    display: none;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-top: 5em;
+}
+
+.button {
+    background-color: var(--color-btn);
+    color: var(--color-white);
+    width: 15rem;
+    height: 4rem;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    transition: 300 ms all ease;
+    gap: 1em;
+    font-size: 20px;
+    color: var(--color-primary);
+}
+
+.button-primary {
+    background-color: #f6f6f9;
+    border: 1px solid var(--color-primary);
+}
+
+.button-secondary {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+}
+
+/* for footer section  */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #e8e6e6;
+    color: #5a5a5a;
+    text-align: center;
+    padding: 1rem;
+    height: 3.5rem;
+}
+
+/* for about us page  */
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem;
+    z-index: 0;
+}
+
+.about-us-img {
+    width: 21.5rem;
+    height: 22rem;
+    filter: sepia(100%);
+    transition: 0.5s all ease-in-out;
+    z-index: 0
+}
+
+.about-us-img:hover {
+    transform: scale(1.1);
+    filter: sepia(2%);
+
+}
+
+.about-us-img img {
+    max-width: 20rem;
+    max-height: 15rem;
+    margin: 1rem auto;
+    z-index: 1;
+}
+
+
+.w3-container h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* for line breaks  */
+.line-break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 4rem 4rem;
+}
+
+/* style for the developers note  */
+
+.developer {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--card-padding);
+}
+
+/* Style the left-aligned section */
+.developer .left,
+.developer .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* Add an image to the right side */
+.developer .right img {
+    filter: drop-shadow(35px 0 50px rgb(91, 76, 142));
+    max-width: 22rem;
+    height: auto;
+    position: relative;
+    left: 10rem;
+    transition: 1s all ease-in-out;
+    transform: rotateY(180deg);
+}
+
+.right img:hover {
+    opacity: 0.8;
+}
+
+/* for contact us section  */
+.w3-section p {
+    font-size: 1.7rem;
+    color: var(--color-primary);
+}
+
+
+/* mobile responsive  */
+/* mobile responsive  */
+@media only screen and (max-width:600px) {
+    main {
+        margin-bottom: 5rem;
+    }
+
+    .logo {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .navbar-mobile {
+        width: 70%;
+    }
+
+    .nav-items li {
+        margin: 10px 0;
+    }
+
+    .login-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle span {
+        font-size: 2.5rem;
+    }
+
+    .img-container {
+        flex-direction: column;
+    }
+
+    .main-heading h1 {
+        margin: 7rem auto 3rem;
+    }
+
+    .main-heading h1,
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-heading p {
+        font-size: 1.1rem;
+    }
+
+
+    .large {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .line-break {
+        font-size: 1rem;
+    }
+
+    .developer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .developer .left h3 {
+        display: none;
+    }
+
+    .developer .left,
+    .developer .right {
+        width: 100%;
+    }
+
+    .developer .right img {
+        position: relative;
+        left: 0;
+        max-width: 15rem;
+    }
+
+    .w3-section p {
+        font-size: 1.1rem;
+        position: relative;
+        left: -1rem;
+    }
+
+    .w3-xxlarge {
+        font-size: 1.5rem !important;
+        position: relative;
+    }
+
+
+    .cta-buttons {
+        /* for the register and login button */
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        margin-top: 10rem;
+    }
+
+    .button {
+        width: 21rem;
+    }
+
+    .w3-input {
+        width: 23rem;
+        margin: 0.5rem 0;
+    }
+
+    .about-us-img {
+        filter: sepia(0%);
+    }
+}
